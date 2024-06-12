@@ -46,9 +46,45 @@ async function init() {
 
             // Muestra el comando con mayor probabilidad y su puntaje en el div de resultados.
             resultDiv.innerHTML = `Command: ${scoresArray[0].word} (${(scoresArray[0].score * 100).toFixed(2)}%)`;
-        }, {
-            // Establece un umbral de probabilidad para considerar un comando como válido.
-            probabilityThreshold: 0.75
+
+            // Muestra una imagen por cada uno de los comandos detectados.
+
+            scoresArray.sort((a, b) => b.probability - a.probability);
+
+            const command = scoresArray[0].word;
+            
+            const imageUrls = {
+              up: "https://www.pngall.com/wp-content/uploads/15/Up-Arrow-PNG-Free-Image.png",
+              down: "https://clipground.com/images/purple-arrow-clipart-6.png",
+              left: "https://www.pngmart.com/files/16/Black-Left-Arrow-PNG-Image.png",
+              right: "https://cdn1.iconfinder.com/data/icons/main-ui-elements-with-colour-bg/512/arrow_right-1024.png",
+              zero: "https://i.pinimg.com/originals/b0/39/86/b03986133da5d7d862297a179755198a.jpg",
+              one: "https://www.pngall.com/wp-content/uploads/2016/04/1-Number-PNG.png",
+              two: "https://static.vecteezy.com/system/resources/previews/024/340/618/original/black-and-gold-of-number-2-3d-render-png.png",
+              three: "https://www.pngall.com/wp-content/uploads/2/3-Number-PNG-Image-File.png",
+              four: "https://i.pinimg.com/originals/a8/18/61/a818610887ca17809a9bd4a1916374ea.png",
+              five: "https://th.bing.com/th/id/R.e2a43ebc14cf2e1a141b72fb95288255?rik=6jxHBPqIkaAbnw&pid=ImgRaw&r=0",
+              six: "https://www.pngall.com/wp-content/uploads/2016/04/6-Number-PNG.png",
+              seven: "https://png.pngtree.com/png-clipart/20200401/original/pngtree-gold-number-7-png-image_5330848.jpg",
+              eight: "https://www.pngall.com/wp-content/uploads/2016/04/8-Number-PNG.png",
+              nine: "https://th.bing.com/th/id/OIP.EoaPgVZmTw0liwuh-fjH4wHaHa?rs=1&pid=ImgDetMain",
+              no: "https://th.bing.com/th/id/OIP.GTnkbagAvDbTwnHmKjpCYgAAAA?rs=1&pid=ImgDetMain",
+              yes: "https://static.vecteezy.com/system/resources/previews/017/177/738/original/yes-lettering-on-transparent-background-free-png.png",
+              stop: "https://static.vecteezy.com/system/resources/previews/012/042/299/original/stop-sign-icon-transparent-background-png.png",
+            };
+            
+            if (command in imageUrls) {
+              const imageUrl = imageUrls[command];
+              const image = new Image();
+              image.src = imageUrl;
+            
+              const listeningDiv = document.querySelector('.listening');
+              listeningDiv.innerHTML = ''; // Borra cualquier contenido previo en el div
+              listeningDiv.appendChild(image); // Agrega la nueva imagen al div "listening"
+            } else {
+              console.log("Command not recognized");
+            }
+
         });
 
         // Cambia el texto del botón a 'Detener Escucha' y cambia la función de clic para detener la escucha.

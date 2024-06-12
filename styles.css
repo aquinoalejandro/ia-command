@@ -51,4 +51,18 @@ body, html {
 /* Estilos cuando el reconocimiento está activo */
 .listening {
     background-color: #FFD700; /* Cambia el color de fondo a amarillo cuando está escuchando */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.listening img{
+    width: 100px;
+    height: 100px;
 }
