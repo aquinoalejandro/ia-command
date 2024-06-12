@@ -1,0 +1,54 @@
+/* 
+#start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+
+.listening {
+    background-color: #FFD700; 
+} */
+
+
+/* Estilos para el contenedor principal */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Estilos para el botón */
+#start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilos para el div de resultado */
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Estilos cuando el reconocimiento está activo */
+.listening {
+    background-color: #FFD700; /* Cambia el color de fondo a amarillo cuando está escuchando */
+}
